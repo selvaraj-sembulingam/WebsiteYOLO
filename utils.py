@@ -530,7 +530,7 @@ def predict_and_save(source_img, model, device, labels_path, font_path, orientat
     img = img.to(device)
 
     # make prediction
-    prediction, loss = model(img, device=device)
+    prediction, loss = model(img)
     # and apply objectness filtering and nms. If returns None, draw a box that states it
     prediction = objectness_filter_and_nms(prediction, model.classes, obj_thresh, nms_thresh)
 
